@@ -14,41 +14,45 @@ public class PhaseBlock : MonoBehaviour
     [SerializeField] private ColorType blockColor;
 
     private BoxCollider boxCollider;
-    private bool isSolid;
 
     private void Awake()
     {
+        // Find collider safely (parent / child proof)
         boxCollider = GetComponent<BoxCollider>();
+        if (boxCollider == null) boxCollider = GetComponentInChildren<BoxCollider>();
+        if (boxCollider == null) boxCollider = GetComponentInParent<BoxCollider>();
+
+        if (boxCollider == null)
+            Debug.LogError($"PhaseBlock ERROR: No BoxCollider found on {name}");
+
         SetGhost();
     }
 
     public void ApplyPhase(ColorType activeColor)
     {
-        Debug.Log("ApplyPhase called on " + name);
+        Debug.Log($"ApplyPhase → {name} | Active: {activeColor} | Block: {blockColor}");
 
         if (activeColor == blockColor)
-        {
             SetSolid();
-        }
+        else
+            SetGhost();
     }
 
     private void SetSolid()
     {
-        isSolid = true;
-
-        boxCollider.isTrigger = false;   // ← WALKABLE
+        boxCollider.isTrigger = false;
         bodyRenderer.material = solidMaterial;
         edgeRenderer.material = solidMaterial;
 
-        Debug.Log(name + " is SOLID");
+        Debug.Log($"{name} → SOLID");
     }
 
     private void SetGhost()
     {
-        isSolid = false;
-
-        boxCollider.isTrigger = true;    // ← PASS THROUGH
+        boxCollider.isTrigger = true;
         bodyRenderer.material = ghostMaterial;
         edgeRenderer.material = ghostMaterial;
+
+        Debug.Log($"{name} → GHOST");
     }
 }
