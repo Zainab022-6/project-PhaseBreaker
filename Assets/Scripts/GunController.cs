@@ -1,77 +1,68 @@
 using UnityEngine;
-using System.Linq;
 
 public class GunController : MonoBehaviour
 {
     [Header("Setup")]
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float range = 6f;
-    [SerializeField] private float rayOriginOffset = 0.5f;
+    [SerializeField] private float range = 8f;
+    [SerializeField] private float rayOriginOffset = 0.3f;
 
     [Header("Gun Lights")]
     [SerializeField] private Light redLight;
     [SerializeField] private Light blueLight;
 
-    // Layers to ignore (Player/Gun/Ignore Raycast)
-    private int rayMask;
-
-    private void Awake()
-    {
-        rayMask = ~LayerMask.GetMask("Player", "Gun", "Ignore Raycast");
-
-        // Ensure lights start off
-        if (redLight != null) redLight.enabled = false;
-        if (blueLight != null) blueLight.enabled = false;
-    }
-
     private void Update()
     {
+        // HOLD Right Click → RED beam
         if (Input.GetMouseButton(1))
         {
             Fire(ColorType.Red);
-            if (redLight != null) redLight.enabled = true;
-            if (blueLight != null) blueLight.enabled = false;
+            EnableLight(redLight);
+            DisableLight(blueLight);
         }
+        // HOLD Left Click → BLUE beam
         else if (Input.GetMouseButton(0))
         {
             Fire(ColorType.Blue);
-            if (blueLight != null) blueLight.enabled = true;
-            if (redLight != null) redLight.enabled = false;
+            EnableLight(blueLight);
+            DisableLight(redLight);
         }
         else
         {
-            if (redLight != null) redLight.enabled = false;
-            if (blueLight != null) blueLight.enabled = false;
+            // No input → lights off
+            DisableLight(redLight);
+            DisableLight(blueLight);
         }
     }
 
     private void Fire(ColorType color)
     {
-        if (playerCamera == null) return;
+        Vector3 origin = playerCamera.transform.position +
+                         playerCamera.transform.forward * rayOriginOffset;
 
-        Vector3 origin = playerCamera.transform.position + playerCamera.transform.forward * rayOriginOffset;
-        Vector3 dir = playerCamera.transform.forward;
+        Ray ray = new Ray(origin, playerCamera.transform.forward);
 
-        // Get all hits including triggers
-        RaycastHit[] hits = Physics.RaycastAll(origin, dir, range, rayMask, QueryTriggerInteraction.Collide);
-        if (hits == null || hits.Length == 0) return;
-
-        // nearest first
-        hits = hits.OrderBy(h => h.distance).ToArray();
-
-        // find first PhaseBlock
-        foreach (var h in hits)
+        if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
-            PhaseBlock block =
-                h.collider.GetComponent<PhaseBlock>() ??
-                h.collider.GetComponentInParent<PhaseBlock>() ??
-                h.collider.GetComponentInChildren<PhaseBlock>();
+            Debug.Log("Hit: " + hit.collider.name);
 
+            PhaseBlock block = hit.collider.GetComponent<PhaseBlock>();
             if (block != null)
             {
                 block.ApplyPhase(color);
-                return;
             }
         }
+    }
+
+    private void EnableLight(Light light)
+    {
+        if (light != null && !light.enabled)
+            light.enabled = true;
+    }
+
+    private void DisableLight(Light light)
+    {
+        if (light != null && light.enabled)
+            light.enabled = false;
     }
 }
