@@ -1,35 +1,27 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
-    [Header("Optional End Message")]
-    public GameObject endCanvas;   // Can be NULL
+    [Tooltip("If you want a short message between levels, set this to the next scene name to load after message.")]
+    public string nextSceneName = "Level_Layout";
 
-    [Header("Optional Scene Transition")]
-    public string nextSceneName;   // Can be EMPTY
-
-    private bool triggered = false;
+    [Tooltip("If you use SceneTransition, set this message and delay. If empty, loads directly.")]
+    public string transitionMessage = "System updated.";
+    public float transitionDelay = 1.5f; // seconds shown before loading next scene
 
     private void OnTriggerEnter(Collider other)
     {
-        if (triggered) return;
         if (!other.CompareTag("Player")) return;
 
-        triggered = true;
-
-        // 1️⃣ Show end message (if assigned)
-        if (endCanvas != null)
+        // If SceneTransition exists and message is not empty, show message and load after delay
+        if (!string.IsNullOrEmpty(transitionMessage) && SceneTransition.Instance != null)
         {
-            endCanvas.SetActive(true);
-            Time.timeScale = 0f;
+            SceneTransition.Instance.StartTransition(nextSceneName, transitionMessage, transitionDelay);
         }
-
-        // 2️⃣ Load next scene (if provided)
-        if (!string.IsNullOrEmpty(nextSceneName))
+        else
         {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(nextSceneName);
+            // direct load (fallback)
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
         }
     }
 }
