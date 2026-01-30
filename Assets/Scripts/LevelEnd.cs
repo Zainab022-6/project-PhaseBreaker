@@ -2,26 +2,29 @@ using UnityEngine;
 
 public class LevelEnd : MonoBehaviour
 {
-    [Tooltip("If you want a short message between levels, set this to the next scene name to load after message.")]
-    public string nextSceneName = "Level_Layout";
+    [Header("Transition")]
+    public string nextSceneName;
+    [TextArea] public string transitionMessage;
 
-    [Tooltip("If you use SceneTransition, set this message and delay. If empty, loads directly.")]
-    public string transitionMessage = "System updated.";
-    public float transitionDelay = 1.5f; // seconds shown before loading next scene
+    private bool triggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (triggered) return;
         if (!other.CompareTag("Player")) return;
 
-        // If SceneTransition exists and message is not empty, show message and load after delay
-        if (!string.IsNullOrEmpty(transitionMessage) && SceneTransition.Instance != null)
+        triggered = true;
+
+        // Find a SceneTransition component in the current scene (per-scene)
+        SceneTransition sceneTransition = FindObjectOfType<SceneTransition>();
+        if (sceneTransition != null)
         {
-            SceneTransition.Instance.StartTransition(nextSceneName, transitionMessage, transitionDelay);
+            sceneTransition.StartTransition(transitionMessage, nextSceneName);
         }
         else
         {
-            // direct load (fallback)
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+            Debug.LogError("LevelEnd: No SceneTransition component found in the scene. " +
+                           "Create a GameObject with the SceneTransition script and assign the UI elements.");
         }
     }
 }
