@@ -875,7 +875,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ffc40012bc52444ba7f4d6e1f3fb9e, type: 3}
---- !u!1 &407260821
+--- !u!1 &464068359
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1184,6 +1184,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2629910798434579508, guid: 6353956a39a3cae4cb3de8a559139873, type: 3}
   m_PrefabInstance: {fileID: 2083583883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &701001942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 584774734025189076, guid: dec2067f978078b48b70847fc7787b84, type: 3}
+  m_PrefabInstance: {fileID: 6005667819165337844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &701001949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701001942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6742dfda4d339224da19dce4e526c8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  useRelativeFall: 1
+  relativeFallDistance: 10
+  fallY: -12
+  respawnDelay: 0.6
+  movementScriptName: FirstPersonMovement
+  lookScriptName: FirstPersonLook
 --- !u!1001 &708577302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1300,8 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelEnd
   nextSceneName: Level_Layout
-  transitionMessage: System updated.
-  transitionDelay: 1.5
+  transitionMessage: "SYSTEM RECONFIGURING\u2026\r\nPHASE STABILITY CHANGING\r\n"
 --- !u!65 &722527727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1536,7 +1558,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 200}
+  m_SizeDelta: {x: 900, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805076932
 MonoBehaviour:
@@ -1933,6 +1955,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6353956a39a3cae4cb3de8a559139873, type: 3}
+--- !u!1 &1224951177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224951179}
+  - component: {fileID: 1224951178}
+  m_Layer: 0
+  m_Name: LevelSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1224951178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224951177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378774d654a02fb42a4faecb160cbcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSettings
+  blockRevertTime: 0
+--- !u!4 &1224951179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224951177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244773649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3402,8 +3469,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
---- !u!1 &1590398416711306588
-GameObject:
+--- !u!114 &1105964557968645681
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4425,7 +4492,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 584774734025189076, guid: dec2067f978078b48b70847fc7787b84, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 701001949}
   m_SourcePrefab: {fileID: 100100000, guid: dec2067f978078b48b70847fc7787b84, type: 3}
 --- !u!1 &6045671945675872125
 GameObject:
@@ -5464,7 +5534,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 395701567}
   - {fileID: 2402984804179279074}
-  - {fileID: 1711644616}
+  - {fileID: 1961762901431416044}
   - {fileID: 6005667819165337844}
   - {fileID: 1104302830435278985}
   - {fileID: 7925513051383802244}
@@ -5475,27 +5545,5 @@ SceneRoots:
   - {fileID: 1295112711}
   - {fileID: 5098086000783853305}
   - {fileID: 295519531}
-  - {fileID: 1667723648}
-  - {fileID: 8064276866638746326}
-  - {fileID: 3137832077005447833}
-  - {fileID: 6714371671705781174}
-  - {fileID: 598181655}
-  - {fileID: 8017387462958910972}
-  - {fileID: 2114979076159281126}
-  - {fileID: 1671469120}
-  - {fileID: 407260825}
-  - {fileID: 736572753}
-  - {fileID: 162583366}
-  - {fileID: 6389862638381059527}
-  - {fileID: 1324430235}
-  - {fileID: 5374876180592442972}
-  - {fileID: 6420715208269203981}
-  - {fileID: 3666930046707580548}
-  - {fileID: 7487897229807960928}
-  - {fileID: 7244252230357349287}
-  - {fileID: 5734014778735405624}
-  - {fileID: 5455500096949629459}
-  - {fileID: 2978303467008989315}
-  - {fileID: 1137240121}
-  - {fileID: 1552135852}
-  - {fileID: 2065974643}
+  - {fileID: 464068361}
+  - {fileID: 1224951179}
