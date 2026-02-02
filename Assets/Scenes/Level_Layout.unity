@@ -7456,7 +7456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf0f27b6c2b8724e91fbb1a3cd6f7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelEnd
-  nextSceneName: UI_Menu
+  nextSceneName: Level_3
   transitionMessage: 'LEVEL COMPLETE
 
     PHASE MASTERED
