@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: 100056c6bf072a34a8f2b7aa374d0b86
   - enabled: 1
-    path: Assets/Scenes/Level_Layout.unity
+    path: Assets/Scenes/Level_2.unity
     guid: 2ef6a81d6e2f696498ca8400ce8878a8
   - enabled: 1
     path: Assets/Scenes/Level_3.unity

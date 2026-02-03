@@ -3356,7 +3356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level Completed '
+  m_Text: Level 1 completed !
 --- !u!222 &1928761295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3779,13 +3779,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3291426235012697679, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291426235012697679, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 455
+      objectReference: {fileID: 0}
     - target: {fileID: 4332361405657063587, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
       propertyPath: m_Name
       value: TutorialCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7815482009408517256, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 7815482009408517256, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8685974500572677433, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028397986213388151, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_Text
+      value: "The platforms ahead are NON-SOLID by default.\r\nYou will fall through
+        them if you step on them.\r\n\r\nApproach the Phase Gun to equip it automatically.\r\n\r\nUse
+        the Phase Gun to solidify platforms:\r\n\u2022 Left Mouse Button \u2192 Solidifies
+        BLUE platforms\r\n\u2022 Right Mouse Button \u2192 Solidifies RED platforms\r\n\r\nUsing
+        the wrong color will NOT solidify a platform.\r\nUsing the wrong color on
+        a solid platform will make it NON-SOLID again."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028397986213388151, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028397986213388151, guid: 6e96c36fd3dbf124ca56b7b856aa14af, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4107,10 +4140,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 2117675119218300940, guid: 9a5ed6341a1af454f9c41830876607f6, type: 3}
+      propertyPath: m_Intensity
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 6872951037769081975, guid: 9a5ed6341a1af454f9c41830876607f6, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 20437472414667047}
+    - target: {fileID: 7622379655184396254, guid: 9a5ed6341a1af454f9c41830876607f6, type: 3}
+      propertyPath: m_Intensity
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 8511793195121387645, guid: 9a5ed6341a1af454f9c41830876607f6, type: 3}
       propertyPath: weaponHolder
       value: 
@@ -4712,6 +4753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: First Person Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 1844810195754694228, guid: dec2067f978078b48b70847fc7787b84, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2855813425665413318, guid: dec2067f978078b48b70847fc7787b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1
@@ -4751,6 +4796,10 @@ PrefabInstance:
     - target: {fileID: 2855813425665413318, guid: dec2067f978078b48b70847fc7787b84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674058891742251820, guid: dec2067f978078b48b70847fc7787b84, type: 3}
+      propertyPath: runSpeed
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5726,6 +5775,10 @@ PrefabInstance:
       propertyPath: messageText
       value: 
       objectReference: {fileID: 1304777908}
+    - target: {fileID: 4383448735558543999, guid: cdab50aee0ba5e34997662226cacd267, type: 3}
+      propertyPath: messageDuration
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
