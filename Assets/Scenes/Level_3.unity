@@ -7066,6 +7066,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4384333311189184817, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561252003}
+    - target: {fileID: 4384333311189184817, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226039491821467391, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561252003}
+    - target: {fileID: 5226039491821467391, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5643146415944959773, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7145,6 +7161,14 @@ PrefabInstance:
     - target: {fileID: 5643146415944959773, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652514815601480735, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561252003}
+    - target: {fileID: 6652514815601480735, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
       objectReference: {fileID: 0}
     - target: {fileID: 8769918214215042136, guid: c9bcd20a2d546da4ebefdf11f79cd57b, type: 3}
       propertyPath: m_Name
@@ -14502,6 +14526,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5e291baad5b3b4cb3440be618c945f, type: 3}
+--- !u!114 &1561252003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5161364892916361393, guid: 7a5e291baad5b3b4cb3440be618c945f, type: 3}
+  m_PrefabInstance: {fileID: 1561252002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285876d762bd22649ba8f0a647baa25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseManager
 --- !u!4 &1562733673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6296036428852216014, guid: b4ffc40012bc52444ba7f4d6e1f3fb9e, type: 3}
